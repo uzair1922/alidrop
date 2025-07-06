@@ -48,8 +48,8 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "*Project:* aliDrop\n*Branch:* `${{ github.ref_name }}`\n*Status:* *${{ job.status }}*"
-
+                    "text": "*Project:* aliDrop\\n*Branch:* `${{ github.ref_name }}`\\n*Status:* *${{ job.status }}*"
+                  }
                 },
                 {
                   "type": "context",
