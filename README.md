@@ -1,7 +1,3 @@
-Here’s a professional and clean `README.md` template for your Cypress test suite. You can customize the sections like `Project Setup`, `Test Coverage`, or `CI Integration` as needed.
-
----
-
 ```md
 # 🧪 Cypress E2E Test Suite
 
