@@ -1,12 +1,12 @@
 name: Run Cypress Tests
 
 on:
-  workflow_dispatch:  # allows manual run
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
   push:
     branches:
       - main
   schedule:
-    - cron: '0 4 * * *'  # 9 AM Pakistan time
+    - cron: '0 4 * * *'  # 9 AM Pakistan time (UTC+5 = 4 AM UTC)
 
 jobs:
   cypress-run:
@@ -26,7 +26,6 @@ jobs:
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
-        
 
       - name: Upload Cypress artifacts (only on failure)
         if: failure()
@@ -43,21 +42,21 @@ jobs:
         with:
           payload: |
             {
-              "text": "${{ job.status == 'success' && '✅' || '❌' }} Cypress Tests - *${{ job.status }}* for *${{ github.repository }}*",
+              "text": "${{ job.status == 'success' && '✅' || '❌' }} Cypress Tests - *${{ job.status }}* for *AliDrop*",
               "blocks": [
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "*${{ github.repository }}*\nBranch: `${{ github.ref_name }}`\nStatus: *${{ job.status }}*"
-                  }
+                    "text": "*Project:* aliDrop\n*Branch:* `${{ github.ref_name }}`\n*Status:* *${{ job.status }}*"
+
                 },
                 {
                   "type": "context",
                   "elements": [
                     {
                       "type": "mrkdwn",
-                      "text": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Run Details>"
+                      "text": "🕐 Run by `${{ github.actor }}` | <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|🔍 View Run Logs>"
                     }
                   ]
                 }
