@@ -40,7 +40,7 @@ jobs:
         if: always()
         uses: slackapi/slack-github-action@v1.25.0
         with:
-          payload: |
+          payload: >
             {
               "text": "${{ job.status == 'success' && '✅' || '❌' }} Cypress Tests - *${{ job.status }}* for *AliDrop*",
               "blocks": [
@@ -48,7 +48,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "*Project:* aliDrop\\n*Branch:* `${{ github.ref_name }}`\\n*Status:* *${{ job.status }}*"
+                    "text": "*Project:* AliDrop\n*Branch:* `${{ github.ref_name }}`\n*Status:* *${{ job.status }}*"
                   }
                 },
                 {
@@ -56,7 +56,7 @@ jobs:
                   "elements": [
                     {
                       "type": "mrkdwn",
-                      "text": "🕐 Run by `${{ github.actor }}`\\n🔗 <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Run Logs>"
+                      "text": "🕐 Run by `${{ github.actor }}`\n🔗 <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Run Logs>"
                     }
                   ]
                 }
