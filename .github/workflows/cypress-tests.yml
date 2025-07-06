@@ -1,11 +1,12 @@
 name: Run Cypress Tests
 
 on:
+  workflow_dispatch:  # allows manual run
   push:
     branches:
       - main
   schedule:
-    - cron: '0 4 * * *' # 9 AM Pakistan time
+    - cron: '0 4 * * *'  # 9 AM Pakistan time
 
 jobs:
   cypress-run:
@@ -27,7 +28,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           start: npm start
-          wait-on: 'http://localhost:3000' # adjust this as needed
+          wait-on: 'http://localhost:3000'
           wait-on-timeout: 60
 
       - name: Upload Cypress artifacts (only on failure)
@@ -45,7 +46,7 @@ jobs:
         with:
           payload: |
             {
-              "text": "✅ Cypress Tests - *${{ job.status }}* for *${{ github.repository }}*",
+              "text": "${{ job.status == 'success' && '✅' || '❌' }} Cypress Tests - *${{ job.status }}* for *${{ github.repository }}*",
               "blocks": [
                 {
                   "type": "section",
@@ -53,6 +54,15 @@ jobs:
                     "type": "mrkdwn",
                     "text": "*${{ github.repository }}*\nBranch: `${{ github.ref_name }}`\nStatus: *${{ job.status }}*"
                   }
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Run Details>"
+                    }
+                  ]
                 }
               ]
             }
