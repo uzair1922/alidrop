@@ -155,5 +155,3 @@ jobs:
 [MIT](./LICENSE)
 
 ---
-
-> Want to customize this README with badges, coverage reports, or CI links? Just ask!
