@@ -56,7 +56,7 @@ jobs:
                   "elements": [
                     {
                       "type": "mrkdwn",
-                      "text": "🕐 Run by `${{ github.actor }}` | <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|🔍 View Run Logs>"
+                      "text": "🕐 Run by `${{ github.actor }}`\\n🔗 <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Run Logs>"
                     }
                   ]
                 }
