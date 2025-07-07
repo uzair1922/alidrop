@@ -21,6 +21,18 @@ Cypress.Commands.add('login', () => {
   });
 })
 
+Cypress.Commands.add('checkoutSignup', () => {
+  const generateRandomEmail = () => {
+    const timestamp = Date.now();
+    return `qa+auto${timestamp}@spocket.com`;
+  };
+  cy.visit('https://staging.alidrop.co/register');
+  cy.contains('h1', 'Welcome to AliDrop');
+  cy.get('input[type="email"]').type(generateRandomEmail());
+  cy.get('input[type="string"]').type("AliDrop QA");
+  cy.get('button[type="submit"]').click();
+})
+
 Cypress.on('uncaught:exception', (err, runnable) => {
   if (err.message.includes('Script error')) {
     return false; // Prevent Cypress from failing the test
