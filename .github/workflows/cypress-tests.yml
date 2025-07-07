@@ -5,8 +5,8 @@ on:
   push:
     branches:
       - main
-  schedule:
-    - cron: '0 4 * * *'  # 9 AM Pakistan time (UTC+5 = 4 AM UTC)
+  # schedule:
+  #   - cron: '0 4 * * *'  # 9 AM Pakistan time (UTC+5 = 4 AM UTC)
 
 jobs:
   cypress-run:
