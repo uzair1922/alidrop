@@ -39,4 +39,3 @@ test('AliDrop signup and Stripe payment', async ({ page }) => {
   await page.waitForTimeout(3000);
   await expect(page).toHaveURL(/.*alidrop\.co.*/);
 });
-

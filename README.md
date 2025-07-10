@@ -1,44 +1,38 @@
+Absolutely! Here's a tailored `README.md` template for your **Playwright-based testing app**, updated to reflect best practices, example usage, and setup instructions.
+
+---
+
 ```md
-# 🧪 Cypress E2E Test Suite
+# 🎭 Playwright E2E Test Suite
 
-This repository contains end-to-end tests for the web application using [Cypress](https://www.cypress.io/), a modern JavaScript-based testing framework built for fast, reliable testing of anything that runs in the browser.
+This repository contains end-to-end tests using [Playwright](https://playwright.dev/), a powerful framework for reliable and fast browser automation.
 
----
-
-## 🚀 Project Overview
-
-This test suite verifies key user flows and UI interactions across the app, including:
-
-- User login
-- Product listing on `/aliexpress-products` page
-- Hover-based interaction with product cards
-- Import-to-list button click behavior
+Playwright tests ensure critical user flows work as expected across major browsers (Chromium, Firefox, and WebKit).
 
 ---
 
-## 📁 Folder Structure
+## 🚀 Features Tested
+
+- Authentication with custom login logic
+- Product listing on `/aliexpress-products`
+- Hover interaction on product cards
+- Import-to-list functionality
+- Validation for already-added products
+
+---
+
+## 🧱 Project Structure
 
 ```
 
-cypress/
-├── e2e/                # Test specs
-│   └── aliexpress.cy.js
-├── fixtures/           # Mock data (if any)
-├── support/            # Reusable commands and config
-│   ├── commands.js
-│   └── e2e.js
-cypress.config.js       # Cypress config file
+tests/
+├── aliexpress.spec.js        # AliExpress product tests
+├── utils.js                  # Reusable helper functions
+playwright.config.js          # Global config for Playwright
 
 ````
 
 ---
-
-## 🛠️ Setup & Installation
-
-### 1. Clone the repo
-```bash
-
-````
 
 ### 2. Install dependencies
 
@@ -46,49 +40,61 @@ cypress.config.js       # Cypress config file
 npm install
 ```
 
-### 3. Start your app (in a separate terminal)
+### 3. Install Playwright browsers
 
 ```bash
-npm run dev
-# or however you start your app
-```
-
-### 4. Run Cypress
-
-#### Open Cypress Test Runner
-
-```bash
-npx cypress open
-```
-
-#### Or run headless (CLI)
-
-```bash
-npx cypress run
+npx playwright install
 ```
 
 ---
 
-## 🧪 Example Test Case: Product Import
+## ▶️ Running Tests
 
-```js
-it('adds a product to the import list', () => {
-  cy.login();
-  cy.visit('/aliexpress-products');
+### Headed (UI mode)
 
-  cy.get('[data-testid^="product-card"]').first().as('firstProduct');
-  cy.get('@firstProduct').trigger('mouseover');
+```bash
+npx playwright test --headed
+```
 
-  cy.get('@firstProduct').within(() => {
-    cy.contains(/add to import list/i, { timeout: 5000 })
-      .then($btn => {
-        cy.wrap($btn).click({ force: true });
-        cy.contains(/added to import list/i, { timeout: 5000 }).should('be.visible');
-      })
-      .catch(() => {
-        cy.contains(/added to import list/i, { timeout: 5000 }).should('be.visible');
-      });
-  });
+### Headless (CI mode)
+
+```bash
+npx playwright test
+```
+
+### Run a specific file
+
+```bash
+npx playwright test tests/aliexpress.spec.js
+```
+
+---
+
+## 🧪 Example Test: Add to Import List
+
+```ts
+import { test, expect } from '@playwright/test';
+
+test('Add first product to import list', async ({ page }) => {
+  // Login with a custom function
+  await login(page);
+
+  await page.goto('/aliexpress-products');
+
+  const firstProduct = page.locator('[data-testid^="product-card"]').first();
+  await firstProduct.hover();
+
+  const addButton = firstProduct.getByText('Add to Import List', { exact: true });
+  const addedLabel = firstProduct.getByText('Added to import list', { exact: true });
+
+  if (await addButton.isVisible()) {
+    await addButton.click();
+    await expect(addedLabel).toBeVisible();
+    console.log('✅ Product successfully added to import list');
+  } else {
+    await expect(addedLabel).toBeVisible();
+    console.log('ℹ️ Product is already in import list');
+  }
 });
 ```
 
@@ -96,63 +102,56 @@ it('adds a product to the import list', () => {
 
 ## 🔐 Authentication
 
-This repo uses a custom Cypress command for login located in:
+You can define a reusable login function in `tests/utils.ts`:
 
-```js
-// cypress/support/commands.js
-Cypress.Commands.add('login', () => {
-  // your login logic here
-});
+```ts
+export async function login(page: Page) {
+  await page.goto('/login');
+  await page.fill('[data-testid="email"]', 'your-email@example.com');
+  await page.fill('[data-testid="password"]', 'your-password');
+  await page.click('[data-testid="login-button"]');
+}
 ```
 
-Update this to suit your app’s auth strategy (JWT, session, cookies, etc.).
+Then import it in your test:
+
+```ts
+import { login } from './utils';
+```
+
+---
+
+## 🧪 Run in UI Debug Mode
+
+```bash
+npx playwright test --debug
+```
+
+---
+
+## 🌐 Cross-Browser Testing
+
+To run tests in **all 3 browsers** (Chromium, Firefox, WebKit):
+
+```bash
+npx playwright test --project=all
+```
 
 ---
 
 ## 📦 Dependencies
 
-* [Cypress](https://www.npmjs.com/package/cypress)
+* [Playwright](https://playwright.dev/)
+* TypeScript (optional)
 
 Install via:
 
 ```bash
-npm install --save-dev cypress
+npm install --save-dev @playwright/test
 ```
 
 ---
 
-## ✅ Best Practices
-
-* Use `data-testid` attributes for stable selectors
-* Avoid relying on text-only selectors (`cy.contains`) when possible
-* Always hover first before checking hover-only UI
-
----
-
-## 🧪 Continuous Integration (CI)
-
-You can run Cypress tests in CI using GitHub Actions or tools like CircleCI, GitLab CI, etc. Example GitHub Actions file:
-
-```yaml
-name: Run Cypress Tests
-
-on: [push, pull_request]
-
-jobs:
-  cypress-run:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: npm install
-      - run: npm run build
-      - run: npx cypress run
-```
-
----
-
-## 📄 License
+## 🛡 License
 
 [MIT](./LICENSE)
-
----
-Check
