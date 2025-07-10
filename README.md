@@ -1,7 +1,3 @@
-Absolutely! Here's a tailored `README.md` template for your **Playwright-based testing app**, updated to reflect best practices, example usage, and setup instructions.
-
----
-
 ```md
 # 🎭 Playwright E2E Test Suite
 
