@@ -15,4 +15,18 @@ test.describe('Find Products on AliExpress Page', () => {
     await expect(page.getByRole('button', { name: /Best selling/i })).toBeVisible();
     await addProductsToImportList(page, 4);
   });
+
+  test('push to store', async ({ page }) => {
+    await expect(page.getByRole('button', { name: /Best selling/i })).toBeVisible();
+    await addProductsToImportList(page, 1);
+    await page.getByRole('button', { name: 'Import List' }).first().click();
+    await page.getByRole('button', { name: 'Push to Store' }).first().click();
+    await page.getByText('Pushing product to store...').click();
+    await page.getByText('Successfully pushed product').click();
+    await page.getByRole('button', { name: 'Live Products' }).click();
+    await page.waitForSelector('[data-testid^="product-card"]', { timeout: 60000 });
+    const productCards = page.locator('[data-testid^="product-card"]');
+    const cardCount = await productCards.count();
+    expect(cardCount).toBeGreaterThan(0);
+  });
 });
