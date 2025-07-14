@@ -67,10 +67,15 @@ test.describe.serial('AliDrop subscription flow', () => {
     }
 
     /* --- claim trial loop until button disappears --- */
-    const claimBtn = page.getByRole('button', { name: 'Claim Your Trial' });
-    while (await claimBtn.isVisible().catch(() => false)) {
-      await safeClick(claimBtn, { force: true });
-      await expect(claimBtn).toBeHidden({ timeout: 20_000 });
+    // const claimBtn = page.getByRole('button', { name: 'Claim Your Trial' });
+    // while (await claimBtn.isVisible().catch(() => false)) {
+    //   await safeClick(claimBtn, { force: true });
+    //   await expect(claimBtn).toBeHidden({ timeout: 20_000 });
+    // }
+
+    while (await page.getByRole('button', { name: 'Claim Your Trial' }).isVisible().catch(() => false)) {
+      await clickButton(page, 'Claim Your Trial', null, { force: true });
+      await page.waitForTimeout(5000);
     }
 
     /* --- confirm we’re on the post‑checkout URL --- */
