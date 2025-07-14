@@ -75,6 +75,10 @@ test.describe.serial('AliDrop subscription flow', () => {
     if (await skipBtn.isVisible().catch(() => false)) {
       await safeClick(skipBtn);
     }
+    const skipBtn2 = page.getByRole('button', { name: 'Skip' });
+    if (await skipBtn2.isVisible().catch(() => false)) {
+      await safeClick(skipBtn2);
+    }
     await page.waitForSelector('input[type="password"]', { timeout: 60000 });
     const pwdInputs = page.locator('input[type="password"]');
     await pwdInputs.nth(0).fill(password);
