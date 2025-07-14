@@ -35,8 +35,8 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests (Firefox only)
-        run: npx playwright test --project=firefox
+      - name: Run Playwright tests
+        run: npx playwright test
 
       - name: Upload Playwright artifacts (only on failure)
         if: failure()
