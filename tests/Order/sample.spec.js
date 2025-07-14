@@ -18,7 +18,7 @@ test.describe('Sample Order', () => {
     await cards.first().click();
     // await page.locator('.sc-dcjTxL').first().click();
     await page.getByRole('button', { name: 'Order Sample' }).click();
-    await page.getByText('Created! Go to Sample Orders').toBeVisible({ timeout: 10000 })
+    await expect(page.getByText('Created! Go to Sample Orders')).toBeVisible({ timeout: 10000 });
     await page.getByRole('button', { name: 'Sample Orders' }).click();
     await page.getByRole('button', { name: 'Checkout' }).click();
     await page.getByText('Not placed').click();
