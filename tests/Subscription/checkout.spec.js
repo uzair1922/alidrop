@@ -42,17 +42,19 @@ test.describe.serial('AliDrop subscription flow', () => {
     await safeClick(page.getByRole('button', { name: 'Skip' }));   // brand step
 
     /* --- Stripe card details --- */
-    const stripeFrames = page.frameLocator('iframe[title="Secure payment input frame"]');
-    let stripeFrame;
-    for (let i = 0; i < 3; i++) {
-      const frame = stripeFrames.nth(i);
-      if (await frame.locator('#Field-numberInput').count() > 0) {
-        stripeFrame = frame;
-        break;
-      }
-    }
-    if (!stripeFrame) throw new Error('Stripe card input frame not found');
-    await expect(stripeFrame.locator('#Field-numberInput')).toBeVisible({ timeout: 15_000 });
+    // const stripeFrames = page.frameLocator('iframe[title="Secure payment input frame"]');
+    // let stripeFrame;
+    // for (let i = 0; i < 3; i++) {
+    //   const frame = stripeFrames.nth(i);
+    //   if (await frame.locator('#Field-numberInput').count() > 0) {
+    //     stripeFrame = frame;
+    //     break;
+    //   }
+    // }
+    // if (!stripeFrame) throw new Error('Stripe card input frame not found');
+    // await expect(stripeFrame.locator('#Field-numberInput')).toBeVisible({ timeout: 15_000 });
+    const stripeFrame = page.frameLocator('iframe[title="Secure payment input frame"]:not([aria-hidden="true"])');
+    await stripeFrame.locator('#Field-numberInput').waitFor({ state: 'visible', timeout: 10000 });
     await stripeFrame.locator('#Field-numberInput').fill('4242424242424242');
     await stripeFrame.locator('#Field-expiryInput').fill('03 / 29');
     await stripeFrame.locator('#Field-cvcInput').fill('123');
