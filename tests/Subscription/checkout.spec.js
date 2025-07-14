@@ -62,6 +62,10 @@ test.describe.serial('AliDrop subscription flow', () => {
       await stripeFrame.locator('#Field-postalCodeInput').fill('12345');
     }
 
+    if (await stripeFrame.locator('#Field-linkMobilePhoneInput').count() > 0) {
+      await stripeFrame.locator('#Field-linkMobilePhoneInput').fill('(201) 555-0123');
+    }
+
     /* --- claim trial loop until button disappears --- */
     const claimBtn = page.getByRole('button', { name: 'Claim Your Trial' });
     while (await claimBtn.isVisible().catch(() => false)) {
