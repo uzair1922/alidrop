@@ -63,7 +63,7 @@ test.describe.serial('AliDrop subscription flow', () => {
     if (await stripeFrame.locator('#Field-countryInput').count() > 0) {
       await stripeFrame.locator('#Field-countryInput').selectOption({ label: 'Pakistan' });
     }
-    
+
     if (await stripeFrame.locator('#Field-postalCodeInput').count() > 0) {
       await stripeFrame.locator('#Field-postalCodeInput').fill('12345');
     }
@@ -79,8 +79,9 @@ test.describe.serial('AliDrop subscription flow', () => {
     //   await expect(claimBtn).toBeHidden({ timeout: 20_000 });
     // }
 
-    while (await page.getByRole('button', { name: 'Claim Your Trial' }).isVisible().catch(() => false)) {
-      await clickButton(page, 'Claim Your Trial', null, { force: true });
+    const claimBtn = page.getByRole('button', { name: 'Claim Your Trial' });
+    while (await claimBtn.isVisible().catch(() => false)) {
+      await safeClick(claimBtn, { force: true });
       await page.waitForTimeout(5000);
     }
 
