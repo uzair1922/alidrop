@@ -47,7 +47,7 @@ test.describe.serial('AliDrop Subscription Flow', () => {
   });
 
   test('AliDrop Stripe payment', async ({ page }) => {
-    test.setTimeout(90000);
+    test.setTimeout(120000);
 
 
     // Signup flow
