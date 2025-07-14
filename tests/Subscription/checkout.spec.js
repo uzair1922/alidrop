@@ -7,7 +7,7 @@ const password = 'Test@1234';
 
 /* ---------- helpers ---------- */
 
-async function login(page: Page, mail = email, pwd = password) {
+async function login(page, mail = email, pwd = password) {
   await page.goto('https://staging.alidrop.co/login');
   await page.fill('input[type="email"]', mail);
   await page.fill('input[type="password"]', pwd);
@@ -18,7 +18,7 @@ async function login(page: Page, mail = email, pwd = password) {
 }
 
 /** click only when the locator is visible & enabled */
-async function safeClick(locator: Locator, opts = {}) {
+async function safeClick(locator, opts = {}) {
   await expect(locator).toBeVisible({ timeout: 15_000 });
   await expect(locator).toBeEnabled();
   await locator.click(opts);
