@@ -58,6 +58,12 @@ test.describe.serial('AliDrop subscription flow', () => {
     await stripeFrame.locator('#Field-numberInput').fill('4242424242424242');
     await stripeFrame.locator('#Field-expiryInput').fill('03 / 29');
     await stripeFrame.locator('#Field-cvcInput').fill('123');
+
+    // Select Pakistan from the country dropdown if present
+    if (await stripeFrame.locator('#Field-countryInput').count() > 0) {
+      await stripeFrame.locator('#Field-countryInput').selectOption({ label: 'Pakistan' });
+    }
+    
     if (await stripeFrame.locator('#Field-postalCodeInput').count() > 0) {
       await stripeFrame.locator('#Field-postalCodeInput').fill('12345');
     }
