@@ -85,8 +85,9 @@ test.describe.serial('AliDrop subscription flow', () => {
       await page.waitForTimeout(5000);
     }
 
-    /* --- confirm we’re on the post‑checkout URL --- */
-    await page.waitForURL(/staging\.alidrop\.co(\/|\/checkout\?plan_id=39).*$/, { timeout: 20_000 });
+    expect(page.url()).toMatch(/https:\/\/staging\.alidrop\.co(\/|\/checkout\?plan_id=39(\&.*)?)?\/?$/);
+    // wait for the URL to stabilize
+    await page.waitForURL('https://staging.alidrop.co/?plan_id=39', { timeout: 20000 });
 
     /* --- set password in settings --- */
     await page.goto('https://staging.alidrop.co/settings/account');
