@@ -34,16 +34,17 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'https://app.alidrop.co',
-
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    /* Set default timeout for each action */
+    actionTimeout: 60000,
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
     },
   ],
 });
