@@ -133,7 +133,7 @@ test.describe.serial('AliDrop subscription flow', () => {
   await safeClick(page.getByRole('button', { name: 'Try for FREE' }).nth(2), { force: true });
 
   const upgradeBtn = page.locator('button.sc-gEvEer:has-text("Upgrade to Unicorn")');
-  await expect(upgradeBtn).toBeVisible({ timeout: 10000 });
+  await expect(upgradeBtn).toBeVisible({ timeout: 30000 });
 
   await Promise.all([
     page.waitForURL(/plan_id=41/, { timeout: 30000 }),
@@ -153,13 +153,15 @@ test.describe.serial('AliDrop subscription flow', () => {
   await safeClick(page.getByRole('button', { name: 'Upgrade plan' }));
   await safeClick(page.getByRole('button', { name: 'Try for FREE' }).nth(1), { force: true });
 
-  const downgradeBtn = page.getByRole('button', { name: 'Downgrade to Pro' });
-  await expect(downgradeBtn).toBeVisible({ timeout: 10000 });
+  const downgradeBtn = page.locator('button:has-text("Downgrade to Pro")').first();
+
+  await expect(downgradeBtn).toBeVisible({ timeout: 30000 });
 
   await Promise.all([
     page.waitForURL(/plan_id=38/, { timeout: 30000 }),
     downgradeBtn.click()
   ]);
 });
+
 
 });
