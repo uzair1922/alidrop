@@ -20,9 +20,11 @@ test.describe('Find Products on AliExpress Page', () => {
     await expect(page.getByRole('button', { name: /Best selling/i })).toBeVisible();
     await addProductsToImportList(page, 1);
     await page.getByRole('button', { name: 'Import List' }).first().click();
+    await expect(page.getByRole('button', { name: 'Push to Store' })).toBeVisible();
     await page.getByRole('button', { name: 'Push to Store' }).first().click();
     await page.getByText('Pushing product to store...').click();
-    await page.getByText('Successfully pushed product').click();
+    const successToast = page.getByText('Successfully pushed product', { timeout: 10000 });
+    await expect(successToast).toBeVisible();
     await page.getByRole('button', { name: 'Live Products' }).click();
     await page.waitForSelector('[data-testid^="product-card"]', { timeout: 60000 });
     const productCards = page.locator('[data-testid^="product-card"]');
