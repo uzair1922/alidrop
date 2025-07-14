@@ -132,15 +132,15 @@ test.describe.serial('AliDrop subscription flow', () => {
   await safeClick(page.getByRole('button', { name: 'Upgrade plan' }));
   await safeClick(page.getByRole('button', { name: 'Try for FREE' }).nth(2), { force: true });
 
-  const upgradeBtn = page.getByRole('button', { name: 'Upgrade to Unicorn' });
-
+  const upgradeBtn = page.locator('button.sc-gEvEer:has-text("Upgrade to Unicorn")');
   await expect(upgradeBtn).toBeVisible({ timeout: 10000 });
 
   await Promise.all([
-    page.waitForURL(/plan_id=41/, { timeout: 30000 }), // Increased timeout
+    page.waitForURL(/plan_id=41/, { timeout: 30000 }),
     upgradeBtn.click()
   ]);
 });
+
 
 
   test('downgrade back to Pro plan', async ({ page }) => {
