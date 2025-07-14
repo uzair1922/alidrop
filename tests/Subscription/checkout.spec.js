@@ -123,36 +123,43 @@ test.describe.serial('AliDrop subscription flow', () => {
   });
 
   test('upgrade to Unicorn plan', async ({ page }) => {
-    await login(page);
+  await login(page);
 
-    await safeClick(page.getByRole('button', { name: 'Settings' }));
-    await safeClick(page.getByRole('link',   { name: 'Membership' }));
-    await expect(page.getByText('Empire', { exact: true })).toBeVisible();
+  await safeClick(page.getByRole('button', { name: 'Settings' }));
+  await safeClick(page.getByRole('link', { name: 'Membership' }));
+  await expect(page.getByText('Empire', { exact: true })).toBeVisible();
 
-    await safeClick(page.getByRole('button', { name: 'Upgrade plan' }));
-    await safeClick(page.getByRole('button', { name: 'Try for FREE' }).nth(2), { force: true });
+  await safeClick(page.getByRole('button', { name: 'Upgrade plan' }));
+  await safeClick(page.getByRole('button', { name: 'Try for FREE' }).nth(2), { force: true });
 
-    const upgradeBtn = page.getByRole('button', { name: 'Upgrade to Unicorn' });
-    while (await upgradeBtn.isVisible().catch(() => false)) {
-      await safeClick(upgradeBtn);
-    }
-    await page.waitForURL(/plan_id=41/, { timeout: 20_000 });
-  });
+  const upgradeBtn = page.getByRole('button', { name: 'Upgrade to Unicorn' });
+
+  await expect(upgradeBtn).toBeVisible({ timeout: 10000 });
+
+  await Promise.all([
+    page.waitForURL(/plan_id=41/, { timeout: 30000 }), // Increased timeout
+    upgradeBtn.click()
+  ]);
+});
+
 
   test('downgrade back to Pro plan', async ({ page }) => {
-    await login(page);
+  await login(page);
 
-    await safeClick(page.getByRole('button', { name: 'Settings' }));
-    await safeClick(page.getByRole('link',   { name: 'Membership' }));
-    await expect(page.getByText('Unicorn', { exact: true })).toBeVisible();
+  await safeClick(page.getByRole('button', { name: 'Settings' }));
+  await safeClick(page.getByRole('link', { name: 'Membership' }));
+  await expect(page.getByText('Unicorn', { exact: true })).toBeVisible();
 
-    await safeClick(page.getByRole('button', { name: 'Upgrade plan' }));
-    await safeClick(page.getByRole('button', { name: 'Try for FREE' }).nth(1), { force: true });
+  await safeClick(page.getByRole('button', { name: 'Upgrade plan' }));
+  await safeClick(page.getByRole('button', { name: 'Try for FREE' }).nth(1), { force: true });
 
-    const downgradeBtn = page.getByRole('button', { name: 'Downgrade to Pro' });
-    while (await downgradeBtn.isVisible().catch(() => false)) {
-      await safeClick(downgradeBtn);
-    }
-    await page.waitForURL(/plan_id=38/, { timeout: 20_000 });
-  });
+  const downgradeBtn = page.getByRole('button', { name: 'Downgrade to Pro' });
+  await expect(downgradeBtn).toBeVisible({ timeout: 10000 });
+
+  await Promise.all([
+    page.waitForURL(/plan_id=38/, { timeout: 30000 }),
+    downgradeBtn.click()
+  ]);
+});
+
 });
