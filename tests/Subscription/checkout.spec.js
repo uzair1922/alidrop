@@ -61,6 +61,7 @@ test.describe.serial('AliDrop subscription flow', () => {
 
     /* --- set password in settings --- */
     await page.goto('https://staging.alidrop.co/settings/account');
+    await page.waitForSelector('input[type="password"]', { timeout: 60000 });
     const pwdInputs = page.locator('input[type="password"]');
     await pwdInputs.nth(0).fill(password);
     await pwdInputs.nth(1).fill(password);
