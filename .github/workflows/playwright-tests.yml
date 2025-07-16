@@ -38,6 +38,45 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
 
+      - name: Upload Playwright HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-html-report
+          path: playwright-report
+
+      - name: Convert HTML report to PDF
+        if: always()
+        continue-on-error: true
+        run: |
+          npm install -g puppeteer
+          node <<'EOF'
+          const puppeteer = require('puppeteer');
+          (async () => {
+            const browser = await puppeteer.launch();
+            const page = await browser.newPage();
+            await page.goto('file://' + process.cwd() + '/playwright-report/index.html', {waitUntil: 'networkidle0'});
+            await page.pdf({path: 'playwright-report/playwright-report.pdf', format: 'A4'});
+            await browser.close();
+          })();
+          EOF
+
+      - name: Upload Playwright PDF report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-pdf-report
+          path: playwright-report/playwright-report.pdf
+
+      - name: Upload Playwright artifacts (only on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-artifacts
+          path: |
+            test-results
+            playwright-report
+
       - name: Upload Playwright artifacts (only on failure)
         if: failure()
         uses: actions/upload-artifact@v4
