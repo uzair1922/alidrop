@@ -69,13 +69,13 @@ jobs:
         with:
           payload: >
             {
-              "text": "${{ job.status == 'success' && '✅' || '❌' }} Playwright Tests - *${{ job.status }}* for *AliDrop*",
+              "text": "${{ job.status == 'success' && '✅' || '❌' }} Playwright Tests - *${{ job.status }}* for *AliDrop* <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Report>",
               "blocks": [
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "*Project:* AliDrop\n*Branch:* `${{ github.ref_name }}`\n*Status:* *${{ job.status }}*"
+                    "text": "*Project:* AliDrop\n*Branch:* `${{ github.ref_name }}`\n*Status:* *${{ job.status }}*\n<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Playwright HTML Report>"
                   }
                 },
                 {
@@ -83,7 +83,7 @@ jobs:
                   "elements": [
                     {
                       "type": "mrkdwn",
-                      "text": "🕐 Run by `${{ github.actor }}`\n🔗 <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Run Logs>"
+                      "text": "🕐 Run by `${{ github.actor }}`"
                     }
                   ]
                 }
