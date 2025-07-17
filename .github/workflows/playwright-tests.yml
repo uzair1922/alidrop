@@ -54,15 +54,6 @@ jobs:
             test-results
             playwright-report
 
-      - name: Upload Playwright artifacts (only on failure)
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-artifacts
-          path: |
-            test-results
-            playwright-report
-
       - name: Send Slack notification
         if: always()
         uses: slackapi/slack-github-action@v1.25.0
