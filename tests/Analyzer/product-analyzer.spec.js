@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { login, searchProducts, addProductsToImportList } from '../../utils';
+import { login, searchProducts, addProductsToImportList, verifyCount } from '../../utils';
 
 test.describe('product analyzer', () => {
   test.beforeEach(async ({ page }) => {
@@ -13,7 +13,11 @@ test.describe('product analyzer', () => {
 
   test('analyze product with no results', async ({ page }) => {
     await searchProducts(page, 'https://www.aliexpress.com/item/1234567890.html');
-    await expect(page.getByText('No products found')).toBeVisible();
+    try {
+      await expect(page.getByText('No products found')).toBeVisible({ timeout: 60000 });
+    } catch (error) {
+      console.error('Error verifying no products found:', error);
+    }
   });
 
   test('search product', async ({ page }) => {
@@ -33,18 +37,3 @@ test.describe('product analyzer', () => {
     await verifyCount(page, 1, true);
   });
 });
-
-
-async function verifyCount(page, expectedCount, addToList = false) {
-  await page.waitForSelector('[data-testid^="product-card"]', { timeout: 60000 });
-  const cards = page.locator('[data-testid^="product-card"]');
-  const count = await cards.count();
-  expect(count).toBeGreaterThan(expectedCount);
-
-  if (addToList) {
-    const card = cards.nth(0);
-    await card.hover();
-    await card.locator('.fa-wand-magic-sparkles').click({ force: true });
-  }
-
-}

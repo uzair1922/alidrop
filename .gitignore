@@ -1,31 +1,17 @@
-# Cypress folders
-cypress/videos/
-cypress/screenshots/
-cypress/downloads/
+# Playwright reports & artifacts
+playwright-report/
+test-results/
+.last-run.json
 
-# Node dependencies
-node_modules/
+# Playwright traces & blobs
+blob-report/
+trace.zip
+*.trace.zip
+*.zip
 
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Playwright screenshots & videos
+screenshots/
+videos/
 
-# OS-specific files
-.DS_Store
-Thumbs.db
-
-# Editor-specific folders
-.vscode/
-
-# Temporary files
-*.swp
-*.swo
-
-# Environment variable files (optional, if used)
-.env
-.env.local
-.env.*
-
-# Coverage reports (optional, if using code coverage tools)
-coverage/
+# Playwright cache
+playwright/.cache/
