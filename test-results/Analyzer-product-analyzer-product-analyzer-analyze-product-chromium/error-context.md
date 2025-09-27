@@ -1,0 +1,64 @@
+# Page snapshot
+
+```yaml
+- link:
+  - /url: /
+  - img
+- heading "Home" [level=2]
+- link "Dashboard":
+  - /url: /
+  - button "Dashboard"
+- link "Find Winning Ads":
+  - /url: /winning-ads
+  - button "Find Winning Ads":
+    - img
+    - text: Find Winning Ads
+- heading "Find Products" [level=2]
+- link "AliExpress Products":
+  - /url: /aliexpress-products
+  - button "AliExpress Products"
+- link "Winning Products":
+  - /url: /winning-products
+  - button "Winning Products"
+- link "US/EU Products":
+  - /url: /us-eu-products
+  - button "US/EU Products"
+- heading "Products" [level=2]
+- link "Import List 49":
+  - /url: /import-list
+  - button "Import List 49"
+- link "Live Products 28":
+  - /url: /live-products
+  - button "Live Products 28"
+- link "Live Orders":
+  - /url: /orders
+  - button "Live Orders"
+- link "Sample Orders 59":
+  - /url: /sample-orders
+  - button "Sample Orders 59"
+- heading "Premium" [level=2]
+- link "Product Analyzer":
+  - /url: /product-analyzer
+  - button "Product Analyzer"
+- link "Settings":
+  - /url: /settings/plans
+  - button "Settings"
+- link "Notifications":
+  - /url: /notifications
+  - button "Notifications"
+- link "Help Center":
+  - /url: https://www.notion.so/AliDrop-20a0c13273a280619329ddb6b9101156
+  - button "Help Center"
+- heading "Product Analyzer" [level=1]
+- text: You can find similar products by uploading an image or entering the product URL link.
+- img
+- textbox "Add a product link or image link": https://www.aliexpress.com/item/1005006861101379.html
+- button
+- button "Search"
+- button "Search"
+- button "Sort by"
+- text: ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ Your AliExpress account is about to disconnect. Please reconnect your account with AliDrop to avoid any interruptions.
+- button "Reconnect AliExpress"
+- iframe
+- text: "1"
+```

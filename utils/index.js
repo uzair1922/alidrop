@@ -76,3 +76,17 @@ export async function searchProducts(page, url) {
 //     }
 //   }
 // }
+
+export async function verifyCount(page, expectedCount = 1, addToList = false) {
+  await page.waitForSelector('[data-testid^="product-card"]', { timeout: 60000 });
+  const cards = page.locator('[data-testid^="product-card"]');
+  const count = await cards.count();
+  expect(count).toBeGreaterThan(expectedCount);
+
+  if (addToList) {
+    const card = cards.nth(0);
+    await card.hover();
+    await card.locator('.fa-wand-magic-sparkles').click({ force: true });
+  }
+
+}

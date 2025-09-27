@@ -1,0 +1,854 @@
+# Page snapshot
+
+```yaml
+- link:
+  - /url: /
+  - img
+- heading "Home" [level=2]
+- link "Dashboard":
+  - /url: /
+  - button "Dashboard"
+- link "Find Winning Ads":
+  - /url: /winning-ads
+  - button "Find Winning Ads":
+    - img
+    - text: Find Winning Ads
+- heading "Find Products" [level=2]
+- link "AliExpress Products":
+  - /url: /aliexpress-products
+  - button "AliExpress Products"
+- link "Winning Products":
+  - /url: /winning-products
+  - button "Winning Products"
+- link "US/EU Products":
+  - /url: /us-eu-products
+  - button "US/EU Products"
+- heading "Products" [level=2]
+- link "Import List 50":
+  - /url: /import-list
+  - button "Import List 50"
+- link "Live Products 28":
+  - /url: /live-products
+  - button "Live Products 28"
+- link "Live Orders":
+  - /url: /orders
+  - button "Live Orders"
+- link "Sample Orders 60":
+  - /url: /sample-orders
+  - button "Sample Orders 60"
+- heading "Premium" [level=2]
+- link "Product Analyzer":
+  - /url: /product-analyzer
+  - button "Product Analyzer"
+- link "Settings":
+  - /url: /settings/plans
+  - button "Settings"
+- link "Notifications":
+  - /url: /notifications
+  - button "Notifications"
+- link "Help Center":
+  - /url: https://www.notion.so/AliDrop-20a0c13273a280619329ddb6b9101156
+  - button "Help Center"
+- heading "Sample Orders" [level=1]
+- textbox "Enter your order number"
+- button "Search"
+- button "Order Status":
+  - img
+  - text: Order Status
+- text: Order No.
+- strong: "23792"
+- text: "Sample Order Date:"
+- strong: Sep 28, 2025
+- text: "Supplier:"
+- strong: Shop1104059567 Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "Furniture Moving Transport Roller Set Removal Lifting Moving Tool Set Wheel Bar Mover Moving Heavy Stuffs Device Hand Tool - Variant - 4Pcs-wheel Remove 1 $15.08 - $15.08 Not placed Checkout":
+      - cell:
+        - img
+      - cell "Furniture Moving Transport Roller Set Removal Lifting Moving Tool Set Wheel Bar Mover Moving Heavy Stuffs Device Hand Tool - Variant - 4Pcs-wheel Remove"
+      - cell "1":
+        - spinbutton: "1"
+      - cell "$15.08"
+      - cell "-"
+      - cell "$15.08"
+      - cell "Not placed"
+      - cell "Checkout":
+        - button "Checkout"
+        - button
+- text: Order No.
+- strong: "23789"
+- text: "Sample Order Date:"
+- strong: Sep 28, 2025
+- text: "Supplier:"
+- strong: Shop1103268073 Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "Plant Trellis Pergolas, Heavy-Duty Polyester Grow Net, Garden Trellis Netting With Square Mesh For Climbing Plants, Vegetables, - Variant - 1.8x3.6m Remove 1 $10.40 - $10.40 Not placed Checkout":
+      - cell:
+        - img
+      - cell "Plant Trellis Pergolas, Heavy-Duty Polyester Grow Net, Garden Trellis Netting With Square Mesh For Climbing Plants, Vegetables, - Variant - 1.8x3.6m Remove"
+      - cell "1":
+        - spinbutton: "1"
+      - cell "$10.40"
+      - cell "-"
+      - cell "$10.40"
+      - cell "Not placed"
+      - cell "Checkout":
+        - button "Checkout"
+        - button
+- text: Order No.
+- strong: "23787"
+- text: "Sample Order Date:"
+- strong: Sep 28, 2025
+- text: "Supplier:"
+- strong: SYHH Fashion Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "New Men's Business Casual Short Sleeved Bone Flower Solid Color POLO Shirt Fashion Breathable Comfortable Summer Versatile Top - Variant - green - L 1 $19.70 - $19.70 Canceled Order Details":
+      - cell:
+        - img
+      - cell "New Men's Business Casual Short Sleeved Bone Flower Solid Color POLO Shirt Fashion Breathable Comfortable Summer Versatile Top - Variant - green - L"
+      - cell "1"
+      - cell "$19.70"
+      - cell "-"
+      - cell "$19.70"
+      - cell "Canceled"
+      - cell "Order Details":
+        - button "Order Details" [disabled]
+- text: Order No.
+- strong: "23760"
+- text: "Sample Order Date:"
+- strong: Sep 27, 2025
+- text: "Supplier:"
+- strong: SYHH Fashion Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "New Men's Business Casual Short Sleeved Bone Flower Solid Color POLO Shirt Fashion Breathable Comfortable Summer Versatile Top - Variant - green - L 1 $19.70 - $19.70 Canceled Order Details":
+      - cell:
+        - img
+      - cell "New Men's Business Casual Short Sleeved Bone Flower Solid Color POLO Shirt Fashion Breathable Comfortable Summer Versatile Top - Variant - green - L"
+      - cell "1"
+      - cell "$19.70"
+      - cell "-"
+      - cell "$19.70"
+      - cell "Canceled"
+      - cell "Order Details":
+        - button "Order Details" [disabled]
+- text: Order No.
+- strong: "23759"
+- text: "Sample Order Date:"
+- strong: Sep 27, 2025
+- text: "Supplier:"
+- strong: FRIZIRA Wig Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "36 Inch 13x6 Highlight Ombre Deep Wave Lace Front Wigs Human Hair Pre Plucked 4/27 Colored 13x4 Water Wave Wigs Curly Lace Front - Variant - 18inches - 13X4 Hd Lace Wig - 200% - United States 1 $79.39 - $79.39 Canceled Order Details":
+      - cell:
+        - img
+      - cell "36 Inch 13x6 Highlight Ombre Deep Wave Lace Front Wigs Human Hair Pre Plucked 4/27 Colored 13x4 Water Wave Wigs Curly Lace Front - Variant - 18inches - 13X4 Hd Lace Wig - 200% - United States"
+      - cell "1"
+      - cell "$79.39"
+      - cell "-"
+      - cell "$79.39"
+      - cell "Canceled"
+      - cell "Order Details":
+        - button "Order Details" [disabled]
+- text: Order No.
+- strong: "23405"
+- text: "Sample Order Date:"
+- strong: Sep 23, 2025
+- text: "Supplier:"
+- strong: Faci Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "8/80Pcs Rubber Pads Floor Protectors Non-slip Cutting Board Furniture Bumper Gasket Table Chair Leg Cover Furniture Hardware Mat - Variant - 8pcs-15x12x8mm Remove 1 $1.95 - $1.95 Not placed Checkout":
+      - cell:
+        - img
+      - cell "8/80Pcs Rubber Pads Floor Protectors Non-slip Cutting Board Furniture Bumper Gasket Table Chair Leg Cover Furniture Hardware Mat - Variant - 8pcs-15x12x8mm Remove"
+      - cell "1":
+        - spinbutton: "1"
+      - cell "$1.95"
+      - cell "-"
+      - cell "$1.95"
+      - cell "Not placed"
+      - cell "Checkout":
+        - button "Checkout"
+        - button
+- text: Order No.
+- strong: "22850"
+- text: "Sample Order Date:"
+- strong: Sep 16, 2025
+- text: "Supplier:"
+- strong: ZITONG maoyi Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "150/250 / 500mL Water Beak Pouring Kettle Tool Succulents Plant Flower Watering Can Squeeze Bottles with Gardening Tools Garden - Variant - 500ml 2 $5.66 - $11.32 Canceled Order Details":
+      - cell:
+        - img
+      - cell "150/250 / 500mL Water Beak Pouring Kettle Tool Succulents Plant Flower Watering Can Squeeze Bottles with Gardening Tools Garden - Variant - 500ml"
+      - cell "2"
+      - cell "$5.66"
+      - cell "-"
+      - cell "$11.32"
+      - cell "Canceled"
+      - cell "Order Details":
+        - button "Order Details" [disabled]
+- text: Order No.
+- strong: "22779"
+- text: "Sample Order Date:"
+- strong: Sep 15, 2025
+- text: "Supplier:"
+- strong: Stone's Store
+- text: Customer
+- strong: QA Tester
+- strong: "+1123456780"
+- text: Shipping Address 47W, 13th Street, New York, New York, USA, 10003
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "Men's Casual Pants Stretch Slim Fit Elastic Waist Jogger Korean Classic Blue Black Gray Male Brand Trousers Plus Size 4XL 5XL - Variant - 3XL - A2-52-BS8021-hei Remove 1 $16.57 $1.99 $18.56 Not placed Checkout":
+      - cell:
+        - img
+      - cell "Men's Casual Pants Stretch Slim Fit Elastic Waist Jogger Korean Classic Blue Black Gray Male Brand Trousers Plus Size 4XL 5XL - Variant - 3XL - A2-52-BS8021-hei Remove"
+      - cell "1":
+        - spinbutton: "1"
+      - cell "$16.57"
+      - cell "$1.99"
+      - cell "$18.56"
+      - cell "Not placed"
+      - cell "Checkout":
+        - button "Checkout"
+        - button
+    - row "New Mens Tactical Pants Multiple Pocket Elasticity Military Urban Commuter Tacitcal Trousers Men Slim Fat Cargo Pant 5XL - Variant - L - Black Remove 1 $38.79 $1.99 $40.78":
+      - cell:
+        - img
+      - cell "New Mens Tactical Pants Multiple Pocket Elasticity Military Urban Commuter Tacitcal Trousers Men Slim Fat Cargo Pant 5XL - Variant - L - Black Remove"
+      - cell "1":
+        - spinbutton: "1"
+      - cell "$38.79"
+      - cell "$1.99"
+      - cell "$40.78"
+    - row "2024 Solid Color Polo Shirt Men's Business Polo Collar Half sleeved Top 2024 Summer Casual Short sleeved T-shirt for Men an - Variant - 8001fengse - L Remove 1 $19.30 $1.99 $21.29":
+      - cell:
+        - img
+      - cell "2024 Solid Color Polo Shirt Men's Business Polo Collar Half sleeved Top 2024 Summer Casual Short sleeved T-shirt for Men an - Variant - 8001fengse - L Remove"
+      - cell "1":
+        - spinbutton: "1"
+      - cell "$19.30"
+      - cell "$1.99"
+      - cell "$21.29"
+    - row "Solar Outdoor Wall Light 12 LED Waterproof Garden Light Courtyard Balustrade Decorative Atmosphere Lamp Down Luminous Solar Lamp - Variant - 8LED warm - CHINA Remove 1 $6.94 $1.99 $8.93":
+      - cell:
+        - img
+      - cell "Solar Outdoor Wall Light 12 LED Waterproof Garden Light Courtyard Balustrade Decorative Atmosphere Lamp Down Luminous Solar Lamp - Variant - 8LED warm - CHINA Remove"
+      - cell "1":
+        - spinbutton: "1"
+      - cell "$6.94"
+      - cell "$1.99"
+      - cell "$8.93"
+    - row "Clearance_2meters 8mm 10mm Line Organizer Pipe Protection Flexible Spiral Wrap Winding Cable Wire Protector Cable Sleeve Cover T - Variant - WHITE - 10mm Remove 1 $16.75 $1.99 $18.74":
+      - cell:
+        - img
+      - cell "Clearance_2meters 8mm 10mm Line Organizer Pipe Protection Flexible Spiral Wrap Winding Cable Wire Protector Cable Sleeve Cover T - Variant - WHITE - 10mm Remove"
+      - cell "1":
+        - spinbutton: "1"
+      - cell "$16.75"
+      - cell "$1.99"
+      - cell "$18.74"
+    - row "Sweet Flower Stud Earrings For Women Vintage Metal Ear Stud Girls Fashion Multi-colored Fresh Earring Party Wedding Jewelry - Variant - purple Remove 1 $6.47 - $6.47":
+      - cell:
+        - img
+      - cell "Sweet Flower Stud Earrings For Women Vintage Metal Ear Stud Girls Fashion Multi-colored Fresh Earring Party Wedding Jewelry - Variant - purple Remove"
+      - cell "1":
+        - spinbutton: "1"
+      - cell "$6.47"
+      - cell "-"
+      - cell "$6.47"
+    - row "High-end Microfiber Auto Wash Towel Car Cleaning Drying Cloth Hemming Car Care Cloth Detailing Car Wash Towel - Variant - 30x30cm 5 piece Remove 1 $10.95 $1.99 $12.94":
+      - cell:
+        - img
+      - cell "High-end Microfiber Auto Wash Towel Car Cleaning Drying Cloth Hemming Car Care Cloth Detailing Car Wash Towel - Variant - 30x30cm 5 piece Remove"
+      - cell "1":
+        - spinbutton: "1"
+      - cell "$10.95"
+      - cell "$1.99"
+      - cell "$12.94"
+    - row "1pc Portable Jewelry Storage Box Home Travel Earrings Necklace Ring Jewelry Box Mini Layered Jewelry Display Case - Variant - ZM-7012-WITHE Remove 4 $6.63 $1.99 $28.51":
+      - cell:
+        - img
+      - cell "1pc Portable Jewelry Storage Box Home Travel Earrings Necklace Ring Jewelry Box Mini Layered Jewelry Display Case - Variant - ZM-7012-WITHE Remove"
+      - cell "4":
+        - spinbutton: "4"
+      - cell "$6.63"
+      - cell "$1.99"
+      - cell "$28.51"
+    - row "1pc Popular Cool Solid Knitted Yoga Gym Tank Top Bra Seamless Skin-Friendly U-Back Vest with Fixed Chest Pad Suspender for Women - Variant - Chocolate - One Size Remove 1 $7.76 - $7.76":
+      - cell:
+        - img
+      - cell "1pc Popular Cool Solid Knitted Yoga Gym Tank Top Bra Seamless Skin-Friendly U-Back Vest with Fixed Chest Pad Suspender for Women - Variant - Chocolate - One Size Remove"
+      - cell "1":
+        - spinbutton: "1"
+      - cell "$7.76"
+      - cell "-"
+      - cell "$7.76"
+    - row "Black Shade Cloth Sunblock Mesh Cover Taped Edge With Grommets, Sun Net For Pergola, Plants Greenhouse, Gardens, Patio, Canopy - Variant - 2MX2M Remove 1 $9.31 $1.99 $11.30":
+      - cell:
+        - img
+      - cell "Black Shade Cloth Sunblock Mesh Cover Taped Edge With Grommets, Sun Net For Pergola, Plants Greenhouse, Gardens, Patio, Canopy - Variant - 2MX2M Remove"
+      - cell "1":
+        - spinbutton: "1"
+      - cell "$9.31"
+      - cell "$1.99"
+      - cell "$11.30"
+    - row "Funny Cat Women Summer White Print T-shirt Girl Casual Short Sleeve O Neck Top For Summer Female Animal Clothing - Variant - S - FQ230J-white Remove 1 $9.52 $1.99 $11.51":
+      - cell:
+        - img
+      - cell "Funny Cat Women Summer White Print T-shirt Girl Casual Short Sleeve O Neck Top For Summer Female Animal Clothing - Variant - S - FQ230J-white Remove"
+      - cell "1":
+        - spinbutton: "1"
+      - cell "$9.52"
+      - cell "$1.99"
+      - cell "$11.51"
+    - row "100pcs Disposable Individual Eyelash Glue Holder Grafting Eyelashes Blossom Cup Rings Eyelash Extension Adhesive Stand Holder - Variant - 100pcs Remove 1 $3.89 $1.99 $5.88":
+      - cell:
+        - img
+      - cell "100pcs Disposable Individual Eyelash Glue Holder Grafting Eyelashes Blossom Cup Rings Eyelash Extension Adhesive Stand Holder - Variant - 100pcs Remove"
+      - cell "1":
+        - spinbutton: "1"
+      - cell "$3.89"
+      - cell "$1.99"
+      - cell "$5.88"
+    - row "Shorts for men's popular casual pants, men's ice silk pants, sports casual pants, high-quality trendy pants, quick drying pants, - Variant - B1-35-DK2261-108-hui - 8XL Remove 1 $32.49 $1.99 $34.48":
+      - cell:
+        - img
+      - cell "Shorts for men's popular casual pants, men's ice silk pants, sports casual pants, high-quality trendy pants, quick drying pants, - Variant - B1-35-DK2261-108-hui - 8XL Remove"
+      - cell "1":
+        - spinbutton: "1"
+      - cell "$32.49"
+      - cell "$1.99"
+      - cell "$34.48"
+- text: Order No.
+- strong: "22573"
+- text: "Sample Order Date:"
+- strong: Sep 13, 2025
+- text: "Supplier:"
+- strong: Stone's Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "New Summer Waffle Round Neck Short Sleeved T-shirt for Men's Short Sleeved Top - Variant - Khaki - XXL 1 $12.32 - $12.32 Canceled Order Details":
+      - cell:
+        - img
+      - cell "New Summer Waffle Round Neck Short Sleeved T-shirt for Men's Short Sleeved Top - Variant - Khaki - XXL"
+      - cell "1"
+      - cell "$12.32"
+      - cell "-"
+      - cell "$12.32"
+      - cell "Canceled"
+      - cell "Order Details":
+        - button "Order Details" [disabled]
+    - row "Yugui Dog Plush Toy Pacha Dog Doll Wholesale Kulomi Doll Machine - Variant - 25CM - E 1 $9.47 - $9.47":
+      - cell:
+        - img
+      - cell "Yugui Dog Plush Toy Pacha Dog Doll Wholesale Kulomi Doll Machine - Variant - 25CM - E"
+      - cell "1"
+      - cell "$9.47"
+      - cell "-"
+      - cell "$9.47"
+    - row "3.5-7MM Wide Stainless Steel Necklaces For Men Punk Cuban Link Chain Choker Women Hip Hop Fashion Party Jewelry Accessories - Variant - 7MM - 55CM 22inch 1 $5.28 - $5.28":
+      - cell:
+        - img
+      - cell "3.5-7MM Wide Stainless Steel Necklaces For Men Punk Cuban Link Chain Choker Women Hip Hop Fashion Party Jewelry Accessories - Variant - 7MM - 55CM 22inch"
+      - cell "1"
+      - cell "$5.28"
+      - cell "-"
+      - cell "$5.28"
+    - row "5pcs 12X12MM Big key module Big button module Light touch switch module with hat High level output for arduino or raspberry pi 3 - Variant 1 $2.73 - $2.73":
+      - cell:
+        - img
+      - cell "5pcs 12X12MM Big key module Big button module Light touch switch module with hat High level output for arduino or raspberry pi 3 - Variant"
+      - cell "1"
+      - cell "$2.73"
+      - cell "-"
+      - cell "$2.73"
+    - row "Summer Sunscreen Shirt Elegant Perspective Thin Chiffon Blouse Korean Harajuku See Through Loose Top Casual Women's Cardigan - Variant - M - WHITE - CHINA 1 $26.52 - $26.52":
+      - cell:
+        - img
+      - cell "Summer Sunscreen Shirt Elegant Perspective Thin Chiffon Blouse Korean Harajuku See Through Loose Top Casual Women's Cardigan - Variant - M - WHITE - CHINA"
+      - cell "1"
+      - cell "$26.52"
+      - cell "-"
+      - cell "$26.52"
+    - row "Plant Trellis Pergolas, Heavy-Duty Polyester Grow Net, Garden Trellis Netting With Square Mesh For Climbing Plants, Vegetables, - Variant - 1.8x3.6m 1 $6.98 - $6.98":
+      - cell:
+        - img
+      - cell "Plant Trellis Pergolas, Heavy-Duty Polyester Grow Net, Garden Trellis Netting With Square Mesh For Climbing Plants, Vegetables, - Variant - 1.8x3.6m"
+      - cell "1"
+      - cell "$6.98"
+      - cell "-"
+      - cell "$6.98"
+    - row "Portable Foot Mat - Adjustable Strap Office Resting Foot Mat Foot Hammock Foot Mat Lazy Man Magic Travel Magic Travel Airplane - Variant - black 1 $5.47 - $5.47":
+      - cell:
+        - img
+      - cell "Portable Foot Mat - Adjustable Strap Office Resting Foot Mat Foot Hammock Foot Mat Lazy Man Magic Travel Magic Travel Airplane - Variant - black"
+      - cell "1"
+      - cell "$5.47"
+      - cell "-"
+      - cell "$5.47"
+    - row "Hot-selling cat chest strap simple design traction rope high-quality nylon material sturdy and durable pet supplies - Variant - Weight within 5kg - Green - CHINA 1 $3.98 - $3.98":
+      - cell:
+        - img
+      - cell "Hot-selling cat chest strap simple design traction rope high-quality nylon material sturdy and durable pet supplies - Variant - Weight within 5kg - Green - CHINA"
+      - cell "1"
+      - cell "$3.98"
+      - cell "-"
+      - cell "$3.98"
+    - row "1/3 Pack Four Seasons Men's Cotton Joker Vest Teenagers Simple Fit Sports Fitness T-shirt Middle-aged Casual Sleeveless T-shirt - Variant - 3pcs-01-hei - Asian-size-L 1 $17.16 - $17.16":
+      - cell:
+        - img
+      - cell "1/3 Pack Four Seasons Men's Cotton Joker Vest Teenagers Simple Fit Sports Fitness T-shirt Middle-aged Casual Sleeveless T-shirt - Variant - 3pcs-01-hei - Asian-size-L"
+      - cell "1"
+      - cell "$17.16"
+      - cell "-"
+      - cell "$17.16"
+- text: Order No.
+- strong: "22567"
+- text: "Sample Order Date:"
+- strong: Sep 13, 2025
+- text: "Supplier:"
+- strong: Croocco Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "220% 99j Burgundy 13x6 Straight Lace Frontal Human Hair Wig 40 46Inch Wigs 13X4 HD Transparent Lace Colored Red Wig For Women - Variant - United States - 28inches - 200% - 13x6 Remove 1 $313.58 - $313.58 Not placed Checkout":
+      - cell:
+        - img
+      - cell "220% 99j Burgundy 13x6 Straight Lace Frontal Human Hair Wig 40 46Inch Wigs 13X4 HD Transparent Lace Colored Red Wig For Women - Variant - United States - 28inches - 200% - 13x6 Remove"
+      - cell "1":
+        - spinbutton: "1"
+      - cell "$313.58"
+      - cell "-"
+      - cell "$313.58"
+      - cell "Not placed"
+      - cell "Checkout":
+        - button "Checkout"
+        - button
+- text: Order No.
+- strong: "22565"
+- text: "Sample Order Date:"
+- strong: Sep 13, 2025
+- text: "Supplier:"
+- strong: Stone's Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "Colorful 8/10pcs/set Women Hair Clips Side Bangs Fix Fringe Barrette Makeup Tools Ladies Girls Styling Hairpin Hair Accessories - Variant - 10pcs pink black 1 $4.80 - $4.80 Canceled Order Details":
+      - cell:
+        - img
+      - cell "Colorful 8/10pcs/set Women Hair Clips Side Bangs Fix Fringe Barrette Makeup Tools Ladies Girls Styling Hairpin Hair Accessories - Variant - 10pcs pink black"
+      - cell "1"
+      - cell "$4.80"
+      - cell "-"
+      - cell "$4.80"
+      - cell "Canceled"
+      - cell "Order Details":
+        - button "Order Details" [disabled]
+- text: Order No.
+- strong: "22343"
+- text: "Sample Order Date:"
+- strong: Sep 09, 2025
+- text: "Supplier:"
+- strong: Stone's Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "Aragorn Narthil Sword Keychains Medieval Weapon Metal Katana Samurai Sword Keychain Ornaments Gifts Toys for Boys Collects - Variant - K00913 1 $5.33 - $5.33 Canceled Order Details":
+      - cell:
+        - img
+      - cell "Aragorn Narthil Sword Keychains Medieval Weapon Metal Katana Samurai Sword Keychain Ornaments Gifts Toys for Boys Collects - Variant - K00913"
+      - cell "1"
+      - cell "$5.33"
+      - cell "-"
+      - cell "$5.33"
+      - cell "Canceled"
+      - cell "Order Details":
+        - button "Order Details" [disabled]
+- text: Order No.
+- strong: "21803"
+- text: "Sample Order Date:"
+- strong: Sep 02, 2025
+- text: "Supplier:"
+- strong: Stone's Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "Stainless Steel Braided Double Row Front and Rear Fish Scale Alloy Magnetic Buckle Bracelet with Keel Jewelry New Model - Variant - 21cm - silver 1 $3.19 - $3.19 Canceled Order Details":
+      - cell:
+        - img
+      - cell "Stainless Steel Braided Double Row Front and Rear Fish Scale Alloy Magnetic Buckle Bracelet with Keel Jewelry New Model - Variant - 21cm - silver"
+      - cell "1"
+      - cell "$3.19"
+      - cell "-"
+      - cell "$3.19"
+      - cell "Canceled"
+      - cell "Order Details":
+        - button "Order Details" [disabled]
+- text: Order No.
+- strong: "21345"
+- text: "Sample Order Date:"
+- strong: Aug 26, 2025
+- text: "Supplier:"
+- strong: Stone's Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "Handheld High-Pressure Manual Sprayer with Adjustable Nozzle - Continuous Pressure, Battery-Free Garden Tool for Gardening & Urb - Variant - Grey 1 $6.07 - $6.07 Canceled Order Details":
+      - cell:
+        - img
+      - cell "Handheld High-Pressure Manual Sprayer with Adjustable Nozzle - Continuous Pressure, Battery-Free Garden Tool for Gardening & Urb - Variant - Grey"
+      - cell "1"
+      - cell "$6.07"
+      - cell "-"
+      - cell "$6.07"
+      - cell "Canceled"
+      - cell "Order Details":
+        - button "Order Details" [disabled]
+- text: Order No.
+- strong: "20773"
+- text: "Sample Order Date:"
+- strong: Aug 19, 2025
+- text: "Supplier:"
+- strong: AZULBLANCO Outdoors Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "Folding Chair Ultralight Detachable Portable Lightweight Chair Folding Extended Seat Fishing Camping Home BBQ Garden Hiking - Variant - light blue 1 $41.98 - $41.98 Canceled Order Details":
+      - cell:
+        - img
+      - cell "Folding Chair Ultralight Detachable Portable Lightweight Chair Folding Extended Seat Fishing Camping Home BBQ Garden Hiking - Variant - light blue"
+      - cell "1"
+      - cell "$41.98"
+      - cell "-"
+      - cell "$41.98"
+      - cell "Canceled"
+      - cell "Order Details":
+        - button "Order Details" [disabled]
+- text: Order No.
+- strong: "19961"
+- text: "Sample Order Date:"
+- strong: Aug 12, 2025
+- text: "Supplier:"
+- strong: Gradle Choice Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "Portability Foot Rest Under Desk Footrest Ergonomic Foot Stool With Massage Rollers Foot Rest For Home Office Work Fast Ship - Variant - black 1 $29.66 - $29.66 Canceled Order Details":
+      - cell:
+        - img
+      - cell "Portability Foot Rest Under Desk Footrest Ergonomic Foot Stool With Massage Rollers Foot Rest For Home Office Work Fast Ship - Variant - black"
+      - cell "1"
+      - cell "$29.66"
+      - cell "-"
+      - cell "$29.66"
+      - cell "Canceled"
+      - cell "Order Details":
+        - button "Order Details" [disabled]
+- text: Order No.
+- strong: "19344"
+- text: "Sample Order Date:"
+- strong: Aug 05, 2025
+- text: "Supplier:"
+- strong: Stone's Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "Portability Foot Rest Under Desk Footrest Ergonomic Foot Stool With Massage Rollers Foot Rest For Home Office Work Fast Ship - Variant - DARK GRAY 1 $22.82 - $22.82 Canceled Order Details":
+      - cell:
+        - img
+      - cell "Portability Foot Rest Under Desk Footrest Ergonomic Foot Stool With Massage Rollers Foot Rest For Home Office Work Fast Ship - Variant - DARK GRAY"
+      - cell "1"
+      - cell "$22.82"
+      - cell "-"
+      - cell "$22.82"
+      - cell "Canceled"
+      - cell "Order Details":
+        - button "Order Details" [disabled]
+- text: Order No.
+- strong: "18911"
+- text: "Sample Order Date:"
+- strong: Jul 31, 2025
+- text: "Supplier:"
+- strong: Stone's Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "Portable Garden Outdoor Thickened Nylon Rope Hammock Indoor Mesh Hammock Portable Simple Hammock Swing Chair - Variant - Navy Green 1 $12.41 - $12.41 Canceled Order Details":
+      - cell:
+        - img
+      - cell "Portable Garden Outdoor Thickened Nylon Rope Hammock Indoor Mesh Hammock Portable Simple Hammock Swing Chair - Variant - Navy Green"
+      - cell "1"
+      - cell "$12.41"
+      - cell "-"
+      - cell "$12.41"
+      - cell "Canceled"
+      - cell "Order Details":
+        - button "Order Details" [disabled]
+- text: Order No.
+- strong: "18831"
+- text: "Sample Order Date:"
+- strong: Jul 30, 2025
+- text: "Supplier:"
+- strong: Stone's Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "Detachable Portable Folding Moon Chair Outdoor Camping Chairs Beach Fishing Chair Ultralight Travel Hiking Picnic Seat Tools - Variant - HWD-BLACK 1 $80.02 - $80.02 Canceled Order Details":
+      - cell:
+        - img
+      - cell "Detachable Portable Folding Moon Chair Outdoor Camping Chairs Beach Fishing Chair Ultralight Travel Hiking Picnic Seat Tools - Variant - HWD-BLACK"
+      - cell "1"
+      - cell "$80.02"
+      - cell "-"
+      - cell "$80.02"
+      - cell "Canceled"
+      - cell "Order Details":
+        - button "Order Details" [disabled]
+- text: Order No.
+- strong: "18683"
+- text: "Sample Order Date:"
+- strong: Jul 29, 2025
+- text: "Supplier:"
+- strong: Stone's Store
+- button "Add shipping information"
+- table:
+  - rowgroup:
+    - row "Image Title Quantity Unit Cost Shipping Total Cost Status Action":
+      - cell "Image"
+      - cell "Title"
+      - cell "Quantity"
+      - cell "Unit Cost"
+      - cell "Shipping"
+      - cell "Total Cost"
+      - cell "Status"
+      - cell "Action"
+  - rowgroup:
+    - row "1/3/4 Pieces Summer Men's Printed Quick-drying Breathable Short-sleeved Plus Size Loose Sports Casual T-shirt Multicolor Choice - Variant - 1pcs-zxs-dt-xinhei - L(US-SIZE) 1 $12.51 - $12.51 Canceled Order Details":
+      - cell:
+        - img
+      - cell "1/3/4 Pieces Summer Men's Printed Quick-drying Breathable Short-sleeved Plus Size Loose Sports Casual T-shirt Multicolor Choice - Variant - 1pcs-zxs-dt-xinhei - L(US-SIZE)"
+      - cell "1"
+      - cell "$12.51"
+      - cell "-"
+      - cell "$12.51"
+      - cell "Canceled"
+      - cell "Order Details":
+        - button "Order Details" [disabled]
+- button [disabled]
+- button [disabled]
+- text: 1 2 3
+- button
+- button
+- text: Success
+- button
+- text: Created! Go to Sample Orders page to process it. Your AliExpress account is about to disconnect. Please reconnect your account with AliDrop to avoid any interruptions.
+- button "Reconnect AliExpress"
+- iframe
+- text: "1"
+```

@@ -1,0 +1,75 @@
+# Page snapshot
+
+```yaml
+- link:
+  - /url: /
+  - img
+- heading "Home" [level=2]
+- link "Dashboard":
+  - /url: /
+  - button "Dashboard"
+- link "Find Winning Ads":
+  - /url: /winning-ads
+  - button "Find Winning Ads":
+    - img
+    - text: Find Winning Ads
+- heading "Find Products" [level=2]
+- link "AliExpress Products":
+  - /url: /aliexpress-products
+  - button "AliExpress Products"
+- link "Winning Products":
+  - /url: /winning-products
+  - button "Winning Products"
+- link "US/EU Products":
+  - /url: /us-eu-products
+  - button "US/EU Products"
+- heading "Products" [level=2]
+- link "Import List 50":
+  - /url: /import-list
+  - button "Import List 50"
+- link "Live Products 28":
+  - /url: /live-products
+  - button "Live Products 28"
+- link "Live Orders":
+  - /url: /orders
+  - button "Live Orders"
+- link "Sample Orders 59":
+  - /url: /sample-orders
+  - button "Sample Orders 59"
+- heading "Premium" [level=2]
+- link "Product Analyzer":
+  - /url: /product-analyzer
+  - button "Product Analyzer"
+- link "Settings":
+  - /url: /settings/plans
+  - button "Settings"
+- link "Notifications":
+  - /url: /notifications
+  - button "Notifications"
+- link "Help Center":
+  - /url: https://www.notion.so/AliDrop-20a0c13273a280619329ddb6b9101156
+  - button "Help Center"
+- heading "👋 Welcome, Prinz" [level=3]
+- heading "Your Quick Walkthrough" [level=2]
+- img
+- heading "Welcome to AliDrop" [level=1]
+- button:
+  - img
+- img "Video icon"
+- text: Welcome to AliDrop 2:23
+- img "Video icon"
+- text: How to import a product? 0:46
+- img "Video icon"
+- text: How to push product to store? 0:44
+- img "Video icon"
+- text: How to check the orders? 0:26
+- img "Video icon"
+- text: How to place sample orders? 0:35
+- img "Video icon"
+- text: How to get access to Winning Products? 0:20 Have questions? We're here 24/7 — visit our
+- button "Help Center"
+- text: or contact us for instant support. Your AliExpress account is about to disconnect. Please reconnect your account with AliDrop to avoid any interruptions.
+- button "Reconnect AliExpress"
+- iframe
+- iframe
+```
