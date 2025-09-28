@@ -132,6 +132,12 @@ test.describe.serial('AliDrop Subscription Flow', () => {
   test('Upgrade to Unicorn Plan', async ({ page }) => {
     await login(page, email, password);
 
+    try {
+      await page.getByText('Continue to dashboard').click();
+    } catch (e) {
+      // no action needed
+    }
+
     await clickButton(page, 'Settings');
     await clickLink(page, 'Membership');
     await expect(page.getByText('Empire', { exact: true })).toBeVisible();
@@ -149,6 +155,12 @@ test.describe.serial('AliDrop Subscription Flow', () => {
 
   test('Downgrade to Pro Plan', async ({ page }) => {
     await login(page, email, password);
+
+    try {
+      await page.getByText('Continue to dashboard').click();
+    } catch (e) {
+      // no action needed
+    }
 
     await clickButton(page, 'Settings');
     await clickLink(page, 'Membership');
