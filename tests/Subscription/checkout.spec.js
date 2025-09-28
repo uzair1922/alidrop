@@ -47,8 +47,6 @@ test.describe.serial('AliDrop Subscription Flow', () => {
   });
 
   test('AliDrop signup and Stripe payment', async ({ page }) => {
-    test.setTimeout(90000);
-
 
     // Signup flow
     await page.goto('https://staging.alidrop.co/register');
@@ -132,18 +130,18 @@ test.describe.serial('AliDrop Subscription Flow', () => {
   test('Upgrade to Unicorn Plan', async ({ page }) => {
     await login(page, email, password);
 
-    try {
-      await page.getByText('Continue to dashboard').click();
-    } catch (e) {
-      // no action needed
-    }
-
     await clickButton(page, 'Settings');
     await clickLink(page, 'Membership');
     await expect(page.getByText('Empire', { exact: true })).toBeVisible();
     await clickButton(page, 'Upgrade plan');
     await clickButton(page, 'Try for FREE', 2, { force: true });
     await page.waitForTimeout(5000);
+
+    try {
+      await page.getByText('Continue to dashboard').click();
+    } catch (e) {
+      // no action needed
+    }
     
     while (await page.getByRole('button', { name: `Upgrade to Unicorn` }).isVisible().catch(() => false)) {
       await clickButton(page, 'Upgrade to Unicorn');
@@ -156,18 +154,18 @@ test.describe.serial('AliDrop Subscription Flow', () => {
   test('Downgrade to Pro Plan', async ({ page }) => {
     await login(page, email, password);
 
-    try {
-      await page.getByText('Continue to dashboard').click();
-    } catch (e) {
-      // no action needed
-    }
-
     await clickButton(page, 'Settings');
     await clickLink(page, 'Membership');
     await expect(page.getByText('Unicorn', { exact: true })).toBeVisible();
     await clickButton(page, 'Upgrade plan');
     await clickButton(page, 'Try for FREE', 1, { force: true });
     await page.waitForTimeout(5000);
+
+    try {
+      await page.getByText('Continue to dashboard').click();
+    } catch (e) {
+      // no action needed
+    }
     
     while (await page.getByRole('button', { name: `Downgrade to Pro` }).isVisible().catch(() => false)) {
       await clickButton(page, 'Downgrade to Pro');
