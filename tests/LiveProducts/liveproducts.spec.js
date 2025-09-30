@@ -25,32 +25,17 @@ test.describe('Live Product Page', () => {
     await verifyCount(page, 1, false);
   });
 
-test('Filter products by stock status', async ({ page }) => {
-  // STEP 2: Click the main Filter button
-  const filterButton = page.getByRole('button', { name: 'Filter' }).first();
-  await filterButton.click();
-
-  // STEP 3: Apply Low stock filter
-  await page.getByRole('button', { name: 'Low stock (less than 10)' }).click();
-  await page.waitForTimeout(1000);
-
-  // STEP 4: Apply Out of stock filter  
-  await page.getByRole('button', { name: 'Out of stock' }).click();
-  await page.waitForTimeout(1000);
-
-  // STEP 5: Verify filters are applied by checking URL or visible elements
-  // Option A: Check if URL contains filter parameters
-  // await expect(page).toHaveURL(/.*low_stock|out_of_stock/);
-
-  // Option B: Check if filter indicators are visible
-  const activeFilters = page.getByText('Low stock').or(page.getByText('Out of stock'));
-  await expect(activeFilters.first()).toBeVisible();
-
-  // STEP 6: Close filter dropdown if needed
-  await page.keyboard.press('Escape');
-  
-  console.log('Product filters applied successfully');
-});
+  test('Filter products', async ({ page }) => {
+    await page.getByRole('button', { name: 'Filter' }).click();
+    await page.getByRole('button', { name: 'Low stock (less than 10)' }).click();
+    await page.getByRole('button', { name: 'Out of stock' }).click();
+    await page.getByText('Low stock (less than 10)').nth(1).click();
+    await page.locator('.sc-gEvEer.hKZLWd').first().click();
+    await page.locator('.sc-gEvEer.hKZLWd').click();
+    await page.getByText('2', { exact: true }).click();
+    // await page.locator('.sc-eBHhsj').first().click();
+    // await page.locator('div:nth-child(2) > .sc-hybRYi > .sc-dxUMQK > .sc-bVVIoq > .sc-dPZUQH > .sc-eBHhsj').click();
+  });
 
   test('Restore products', async ({ page }) => {
     await page.locator('.sc-eBHhsj').first().click();

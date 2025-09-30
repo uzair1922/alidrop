@@ -69,13 +69,26 @@ async function closeIntercom(page) {
   console.log('Could not find Intercom close/minimize control - messenger might already be closed');
 }
 
-async function findAndUseMessageInput(messenger) {
+async function findAndUseMessageInput(page, messenger) {
   console.log('Looking for message input...');
   
   // Wait for Intercom to be fully loaded
   await messenger.locator('body').waitFor({ state: 'visible', timeout: 15000 });
   
-  // Strategy 1: Look for common conversation starters
+  // Strategy 1: Look for the specific "Send us a message" div structure
+  const sendUsMessageDiv = messenger.locator('.intercom-1cnueyx, .intercom-yetwdb, [class*="intercom"]').filter({
+    hasText: /Send us a message/i
+  }).first();
+
+  if (await sendUsMessageDiv.isVisible({ timeout: 5000 }).catch(() => false)) {
+    console.log('Found "Send us a message" container - clicking it');
+    await sendUsMessageDiv.click();
+    
+    // Wait for the message input to appear after clicking
+    await page.waitForTimeout(2000);
+  }
+
+  // Strategy 2: Look for conversation starters (backward compatibility)
   const conversationStarters = [
     { text: 'Send us a message', exact: false },
     { text: 'Start conversation', exact: false },
@@ -86,39 +99,49 @@ async function findAndUseMessageInput(messenger) {
   ];
 
   for (const starter of conversationStarters) {
-    const button = messenger.getByText(starter.text, { exact: starter.exact }).first();
-    if (await button.isVisible({ timeout: 3000 }).catch(() => false)) {
+    const element = messenger.getByText(starter.text, { exact: starter.exact }).first();
+    if (await element.isVisible({ timeout: 2000 }).catch(() => false)) {
       console.log(`Found conversation starter: "${starter.text}"`);
-      await button.click();
-      await messenger.locator('body').waitFor({ state: 'visible' });
+      await element.click();
+      await page.waitForTimeout(2000);
       break;
     }
   }
 
-  // Strategy 2: Look for message input with multiple selectors and approaches
+  // Strategy 3: Direct message input detection with multiple approaches
+  let messageInput = null;
+  
+  // Wait a bit for the UI to settle after any clicks
+  await page.waitForTimeout(3000);
+
+  // Try multiple input selectors with increased timeout
   const inputSelectors = [
-    'textarea[aria-label*="Message"]',
-    'textarea[aria-label*="message"]',
-    'textarea[placeholder*="Message"]',
-    'textarea[placeholder*="message"]',
-    'textarea[id*="message"]',
-    'textarea[name*="message"]',
+    'textarea[aria-label*="message" i]',
+    'textarea[placeholder*="message" i]',
+    'textarea[id*="message" i]',
+    'textarea[name*="message" i]',
+    'div[contenteditable="true"][aria-label*="message" i]',
+    'div[contenteditable="true"][data-placeholder*="message" i]',
     'textarea',
     'div[contenteditable="true"]',
     '[data-testid*="composer"] textarea',
     '[data-testid*="composer"] div[contenteditable="true"]',
     '.intercom-composer textarea',
-    '.intercom-composer div[contenteditable="true"]'
+    '.intercom-composer div[contenteditable="true"]',
+    '[role="textbox"]',
+    '[aria-multiline="true"]'
   ];
 
-  let messageInput = null;
-  
   for (const selector of inputSelectors) {
     const locator = messenger.locator(selector).first();
     try {
-      await expect(locator).toBeVisible({ timeout: 5000 });
+      await expect(locator).toBeVisible({ timeout: 8000 });
       messageInput = locator;
       console.log(`Found message input with selector: ${selector}`);
+      
+      // Ensure it's interactable
+      await locator.click({ force: true });
+      await page.waitForTimeout(1000);
       break;
     } catch {
       continue;
@@ -126,18 +149,61 @@ async function findAndUseMessageInput(messenger) {
   }
 
   if (!messageInput) {
-    // Strategy 3: Try to click on the composer area
-    const composerArea = messenger.locator('[data-testid*="composer"], .intercom-composer, [class*="composer"]').first();
-    if (await composerArea.isVisible({ timeout: 3000 }).catch(() => false)) {
-      console.log('Clicking on composer area to activate input');
-      await composerArea.click();
-      
-      // Try finding input again after click
-      for (const selector of inputSelectors) {
-        const locator = messenger.locator(selector).first();
-        if (await locator.isVisible({ timeout: 3000 }).catch(() => false)) {
-          messageInput = locator;
-          console.log(`Found message input after composer click: ${selector}`);
+    // Strategy 4: Try to find and click composer area
+    const composerSelectors = [
+      '[data-testid*="composer"]',
+      '.intercom-composer',
+      '[class*="composer"]',
+      '[role="composer"]'
+    ];
+
+    for (const selector of composerSelectors) {
+      const composer = messenger.locator(selector).first();
+      if (await composer.isVisible({ timeout: 3000 }).catch(() => false)) {
+        console.log(`Found composer with selector: ${selector} - clicking to activate`);
+        await composer.click({ force: true });
+        await page.waitForTimeout(2000);
+        
+        // Try finding input again after composer click
+        for (const inputSelector of inputSelectors) {
+          const locator = messenger.locator(inputSelector).first();
+          if (await locator.isVisible({ timeout: 3000 }).catch(() => false)) {
+            messageInput = locator;
+            console.log(`Found message input after composer click: ${inputSelector}`);
+            break;
+          }
+        }
+        if (messageInput) break;
+      }
+    }
+  }
+
+  if (!messageInput) {
+    // Final attempt: Look for any focusable element that could be a message input
+    const focusableElements = messenger.locator('textarea, div[contenteditable="true"]');
+    const count = await focusableElements.count();
+    console.log(`Found ${count} potential focusable elements`);
+    
+    for (let i = 0; i < count; i++) {
+      const element = focusableElements.nth(i);
+      if (await element.isVisible()) {
+        console.log(`Trying element ${i + 1}`);
+        await element.click({ force: true });
+        await page.waitForTimeout(1000);
+        
+        // Check if this might be our input by checking attributes
+        const tagName = await element.evaluate(el => el.tagName.toLowerCase());
+        const isContentEditable = await element.evaluate(el => el.contentEditable === 'true');
+        const hasMessageAttr = await element.evaluate(el => 
+          el.getAttribute('aria-label')?.toLowerCase().includes('message') ||
+          el.getAttribute('placeholder')?.toLowerCase().includes('message') ||
+          el.getAttribute('id')?.toLowerCase().includes('message') ||
+          el.getAttribute('name')?.toLowerCase().includes('message')
+        );
+        
+        if (tagName === 'textarea' || isContentEditable || hasMessageAttr) {
+          messageInput = element;
+          console.log(`Selected element ${i + 1} as message input`);
           break;
         }
       }
@@ -145,6 +211,9 @@ async function findAndUseMessageInput(messenger) {
   }
 
   if (!messageInput) {
+    // Debug: Log the current state of the messenger
+    const bodyHTML = await messenger.locator('body').innerHTML();
+    console.log('Messenger body content:', bodyHTML.substring(0, 1000)); // First 1000 chars
     throw new Error('Could not find message input in Intercom messenger');
   }
 
@@ -161,52 +230,21 @@ test('Intercom full flow: Recent → Send msg → Back → Messages → Close', 
   const messenger = await openIntercom(page);
   console.log('Intercom opened successfully');
 
-  // STEP 3: Check if "Recent message" exists and handle both scenarios
-  const recentMessageButton = messenger.getByText('Recent message', { exact: true });
+  // Add a longer wait for Intercom to fully initialize
+  await page.waitForTimeout(5000);
+
+  // STEP 3: Find and use message input
+  console.log('Looking for message input...');
+  const textarea = await findAndUseMessageInput(page, messenger);
   
-  if (await recentMessageButton.isVisible({ timeout: 10000 }).catch(() => false)) {
-    // Scenario 1: Recent messages exist
-    console.log('Recent messages found - proceeding with full flow');
-    
-    // Click "Recent message"
-    await recentMessageButton.click();
+  // Type and send message
+  const testMessage = 'This is an automated test message ' + Date.now();
+  await textarea.fill(testMessage);
+  await textarea.press('Enter');
+  console.log('Message sent successfully');
 
-    // Optional: Click "Send us a message" if shown
-    const sendUs = messenger.getByText('Send us a message', { exact: true });
-    if (await sendUs.isVisible({ timeout: 5000 }).catch(() => false)) {
-      await sendUs.click();
-    }
-
-    // Find and use message input
-    const textarea = await findAndUseMessageInput(messenger);
-    
-    // Type and send message
-    const testMessage = 'This is an automated test message ' + Date.now();
-    await textarea.fill(testMessage);
-    await textarea.press('Enter');
-    console.log('Message sent successfully');
-
-    // Navigate back and to messages
-    await messenger.locator('[data-testid="go-back"], [aria-label*="back"], button:has-text("Back")').first().click();
-    await page.waitForTimeout(3000);
-    await messenger.locator('[data-testid="messages"], [aria-label*="messages"], button:has-text("Messages")').first().click();
-
-  } else {
-    // Scenario 2: No recent messages
-    console.log('No recent messages found - proceeding with direct message flow');
-    
-    // Find and use message input directly
-    const textarea = await findAndUseMessageInput(messenger);
-    
-    // Type and send message
-    const testMessage = 'This is an automated test message ' + Date.now();
-    await textarea.fill(testMessage);
-    await textarea.press('Enter');
-    console.log('Message sent successfully');
-
-    // Wait a moment for the message to be sent
-    await page.waitForTimeout(3000);
-  }
+  // Wait for message to be sent
+  await page.waitForTimeout(5000);
 
   // STEP 4: Close Intercom
   console.log('Closing Intercom...');
