@@ -11,6 +11,16 @@ const login = async (page, email, password) => {
   await page.fill('input[type="email"]', email);
   await page.fill('input[type="password"]', password);
   await page.click('button[type="submit"]', { force: true });
+
+  // check for the text "Oops! Something went wrong" and if found, retry login
+  if (await page.getByText('Oops! Something went wrong').isVisible().catch(() => false)) {
+    console.log('Login failed, retrying...');
+    // wait for 5 seconds before retrying
+    await page.waitForTimeout(5000);
+    await page.fill('input[type="email"]', email);
+    await page.fill('input[type="password"]', password);
+    await page.click('button[type="submit"]', { force: true });
+  }
   await page.waitForURL((url) => !url.pathname.includes('/login'));
 };
 
@@ -155,6 +165,8 @@ test.describe.serial('AliDrop Subscription Flow', () => {
     } catch (e) {
       // no action needed
     }
+
+    
     
     while (await page.getByRole('button', { name: `Upgrade to Unicorn` }).isVisible().catch(() => false)) {
       await clickButton(page, 'Upgrade to Unicorn');
