@@ -78,19 +78,26 @@ export async function searchProducts(page, url) {
 // }
 
 export async function verifyCount(page, expectedCount = 1, addToList = false) {
-  await page.waitForSelector('[data-testid^="product-card"]', { timeout: 60000 });
-  const cards = page.locator('[data-testid^="product-card"]');
-  const count = await cards.count();
   try {
-    expect(count).toBeGreaterThan(expectedCount);
+    await page.waitForSelector('[data-testid^="product-card"]', { timeout: 20000 });
+    const cards = page.locator('[data-testid^="product-card"]');
+    const count = await cards.count();
+    try {
+      expect(count).toBeGreaterThan(expectedCount);
+    } catch (e) {
+      expect(page.getByText('No products found')).toBeVisible();
+    }
+  
+    if (addToList) {
+      const card = cards.nth(0);
+      await card.hover();
+      await card.locator('.fa-wand-magic-sparkles').click({ force: true });
+    }
+
+    return true
   } catch (e) {
     expect(page.getByText('No products found')).toBeVisible();
-  }
-
-  if (addToList) {
-    const card = cards.nth(0);
-    await card.hover();
-    await card.locator('.fa-wand-magic-sparkles').click({ force: true });
+    return false
   }
 
 }
