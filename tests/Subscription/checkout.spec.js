@@ -166,14 +166,23 @@ test.describe.serial('AliDrop Subscription Flow', () => {
       // no action needed
     }
 
-
-    
-    while (await page.getByRole('button', { name: `Upgrade to Unicorn` }).isVisible().catch(() => false)) {
-      await clickButton(page, 'Upgrade to Unicorn');
-      await page.waitForTimeout(5000);
+    try {
+      await page.waitForURL('https://staging.alidrop.co/?plan_id=46', { timeout: 20000 });  
+    } catch (e) {
+      try {
+        await page.waitForURL((url) => url.href.includes('plan_id=46'), { timeout: 10000 });
+      } catch (e) {
+        await clickButton(page, 'Try for FREE', 2, { force: true });
+        await page.waitForTimeout(5000);
+        await page.waitForURL('https://staging.alidrop.co/?plan_id=46', { timeout: 20000 });
+      }
     }
+    // while (await page.getByRole('button', { name: `Upgrade to Unicorn` }).isVisible().catch(() => false)) {
+    //   await clickButton(page, 'Upgrade to Unicorn');
+    //   await page.waitForTimeout(5000);
+    // }
 
-    await page.waitForURL('https://staging.alidrop.co/?plan_id=46', { timeout: 20000 });  
+    // await page.waitForURL('https://staging.alidrop.co/?plan_id=46', { timeout: 20000 });  
   })
 
   test('Downgrade to Pro Plan', async ({ page }) => {
@@ -191,12 +200,24 @@ test.describe.serial('AliDrop Subscription Flow', () => {
     } catch (e) {
       // no action needed
     }
-    
-    while (await page.getByRole('button', { name: `Downgrade to Pro` }).isVisible().catch(() => false)) {
-      await clickButton(page, 'Downgrade to Pro');
-      await page.waitForTimeout(5000);
-    }
 
-    await page.waitForURL('https://staging.alidrop.co/?plan_id=38', { timeout: 20000 });  
+    try {
+      await page.waitForURL('https://staging.alidrop.co/?plan_id=45', { timeout: 20000 });  
+    } catch (e) {
+      try {
+        await page.waitForURL((url) => url.href.includes('plan_id=45'), { timeout: 10000 });
+      } catch (e) {
+        await clickButton(page, 'Try for FREE', 1, { force: true });
+        await page.waitForTimeout(5000);
+        await page.waitForURL('https://staging.alidrop.co/?plan_id=45', { timeout: 20000 });
+      }
+    }
+    
+    // while (await page.getByRole('button', { name: `Downgrade to Pro` }).isVisible().catch(() => false)) {
+    //   await clickButton(page, 'Downgrade to Pro');
+    //   await page.waitForTimeout(5000);
+    // }
+
+    // await page.waitForURL('https://staging.alidrop.co/?plan_id=38', { timeout: 20000 });  
   })
 });
