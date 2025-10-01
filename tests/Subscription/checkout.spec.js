@@ -64,6 +64,19 @@ test.describe.serial('AliDrop Subscription Flow', () => {
     await stripeFrame.locator('#Field-expiryInput').fill('03 / 29');
     await stripeFrame.locator('#Field-cvcInput').fill('123');
 
+    // Select Pakistan from the country dropdown if present
+    if (await stripeFrame.locator('#Field-countryInput').count() > 0) {
+      await stripeFrame.locator('#Field-countryInput').selectOption({ label: 'Pakistan' });
+    }
+
+    if (await stripeFrame.locator('#Field-postalCodeInput').count() > 0) {
+      await stripeFrame.locator('#Field-postalCodeInput').fill('12345');
+    }
+
+    if (await stripeFrame.locator('#Field-linkMobilePhoneInput').count() > 0) {
+      await stripeFrame.locator('#Field-linkMobilePhoneInput').fill('(201) 555-0123');
+    }
+
     // Keep clicking "Claim Your Trial" as long as the button is visible
     // while (await page.getByRole('button', { name: 'Claim Your Trial' }).isVisible().catch(() => false)) {
     //   await clickButton(page, 'Claim Your Trial', null, { force: true });

@@ -26,7 +26,7 @@ test.describe('Live Product Page', () => {
   });
 
   test('Filter products', async ({ page }) => {
-    if (await verifyCount(page, 1, false)){
+    if (!await verifyCount(page, 1, false)){
       return
     }
     await page.getByRole('button', { name: 'Filter' }).click();
@@ -41,7 +41,7 @@ test.describe('Live Product Page', () => {
   });
 
   test('Restore products', async ({ page }) => {
-    if (await verifyCount(page, 1, false)){
+    if (!await verifyCount(page, 1, false)){
       return
     }
     await page.locator('.sc-eBHhsj').first().click();
@@ -51,7 +51,7 @@ test.describe('Live Product Page', () => {
   });
 
   test('Delete products', async ({ page }) => {
-    if (await verifyCount(page, 1, false)){
+    if (!await verifyCount(page, 1, false)){
       return
     }
     await page.locator('.sc-eBHhsj').first().click();
@@ -61,7 +61,7 @@ test.describe('Live Product Page', () => {
   });
 
   test('Delete and Restore Single product', async ({ page }) => {
-    if (await verifyCount(page, 1, false)){
+    if (!await verifyCount(page, 1, false)){
       return
     }
     await page.locator('.sc-gEvEer.prJgU').first().click();
@@ -72,7 +72,7 @@ test.describe('Live Product Page', () => {
   });
 
   test('View and interact with product modal', async ({ page }) => {
-    if (await verifyCount(page, 1, false)){
+    if (!await verifyCount(page, 1, false)){
       return
     }
 
