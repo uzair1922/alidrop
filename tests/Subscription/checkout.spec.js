@@ -166,14 +166,14 @@ test.describe.serial('AliDrop Subscription Flow', () => {
       // no action needed
     }
 
-    
+
     
     while (await page.getByRole('button', { name: `Upgrade to Unicorn` }).isVisible().catch(() => false)) {
       await clickButton(page, 'Upgrade to Unicorn');
       await page.waitForTimeout(5000);
     }
 
-    await page.waitForURL('https://staging.alidrop.co/?plan_id=41', { timeout: 20000 });  
+    await page.waitForURL('https://staging.alidrop.co/?plan_id=46', { timeout: 20000 });  
   })
 
   test('Downgrade to Pro Plan', async ({ page }) => {

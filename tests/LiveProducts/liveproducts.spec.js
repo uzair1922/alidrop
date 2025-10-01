@@ -51,10 +51,11 @@ test.describe('Live Product Page', () => {
     await page.locator('.sc-eBHhsj').first().click();
     try {
       await page.locator('div:nth-child(2) > .sc-blKGMR > .sc-gMZepy > .sc-bVVIoq > .sc-dPZUQH > .sc-eBHhsj').click();
+      await page.getByRole('button', { name: 'Restore (2)' }).click();
     } catch (e) {
       console.log("No other product found")
+      await page.getByRole('button', { name: 'Restore (1)' }).click();
     }
-    await page.getByRole('button', { name: 'Restore (2)' }).click();
     await page.getByRole('button', { name: 'Restore', exact: true }).click();
   });
 
@@ -65,10 +66,11 @@ test.describe('Live Product Page', () => {
     await page.locator('.sc-eBHhsj').first().click();
     try {
       await page.locator('div:nth-child(2) > .sc-blKGMR > .sc-gMZepy > .sc-bVVIoq > .sc-dPZUQH > .sc-eBHhsj').click();
+      await page.getByRole('button', { name: 'Delete (2)' }).click();
     } catch (e) {
       console.log("No other product found")
+      await page.getByRole('button', { name: 'Delete (1)' }).click();
     }
-    await page.getByRole('button', { name: 'Delete (2)' }).click();
     await page.getByRole('button', { name: 'Delete', exact: true }).click();
   });
 
