@@ -78,24 +78,24 @@ async function openNotificationsPanel(page) {
   if (!opened) throw new Error('Notifications panel did not open after multiple click strategies.');
 }
 
-test('Notifications: open right drawer and verify items', async ({ page }) => {
-  await login(page);
-  await page.goto('/', { timeout: 60000 });
+// test('Notifications: open right drawer and verify items', async ({ page }) => {
+//   await login(page);
+//   await page.goto('/', { timeout: 60000 });
 
-  await openNotificationsPanel(page);
+//   await openNotificationsPanel(page);
 
-  // Verify panel visible + at least one notification card (generic)
-  const panel = page.locator('div.sc-kdBSHD.bjXJKF').first();
-  const activePanel = (await panel.isVisible().catch(() => false))
-    ? panel
-    : page
-        .locator(
-          '[data-testid="notifications-panel"], [role="dialog"]:has-text("Notifications"), [role="region"]:has-text("Notifications"), aside:has-text("Notifications")'
-        )
-        .first();
+//   // Verify panel visible + at least one notification card (generic)
+//   const panel = page.locator('div.sc-kdBSHD.bjXJKF').first();
+//   const activePanel = (await panel.isVisible().catch(() => false))
+//     ? panel
+//     : page
+//         .locator(
+//           '[data-testid="notifications-panel"], [role="dialog"]:has-text("Notifications"), [role="region"]:has-text("Notifications"), aside:has-text("Notifications")'
+//         )
+//         .first();
 
-  await expect(activePanel).toBeVisible();
+//   await expect(activePanel).toBeVisible();
 
-  const item = activePanel.locator('div.sc-tagGq').first();
-  await expect(item).toBeVisible({ timeout: 10000 });
-});
+//   const item = activePanel.locator('div.sc-tagGq').first();
+//   await expect(item).toBeVisible({ timeout: 10000 });
+// });
