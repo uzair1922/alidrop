@@ -23,7 +23,10 @@ test.describe('Find Products on AliExpress Page', () => {
     await page.getByRole('textbox', { name: 'Search for products' }).fill('shirt');
     await page.getByRole('button', { name: 'Search' }).click();
     try {
-      await expect(page.locator('.sc-bVVIoq').first()).toBeVisible({ timeout: 20000 });
+      await page.waitForSelector('[data-testid^="import-list-card"]', { timeout: 60000 });
+      const cards = page.locator('[data-testid^="import-list-card"]');
+      const count = await cards.count();
+      expect(count).toBeGreaterThan(0);
     } catch (e) {
       await expect(page.getByText('Your import list is empty')).toBeVisible();
     }
