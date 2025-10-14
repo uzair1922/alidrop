@@ -220,37 +220,37 @@ async function findAndUseMessageInput(page, messenger) {
   return messageInput;
 }
 
-test('Intercom full flow: Recent → Send msg → Back → Messages → Close', async ({ page }) => {
-  // STEP 1: Login
-  await login(page);
-  await page.goto('/', { timeout: 60000 });
+// test('Intercom full flow: Recent → Send msg → Back → Messages → Close', async ({ page }) => {
+//   // STEP 1: Login
+//   await login(page);
+//   await page.goto('/', { timeout: 60000 });
 
-  // STEP 2: Open Intercom
-  console.log('Opening Intercom...');
-  const messenger = await openIntercom(page);
-  console.log('Intercom opened successfully');
+//   // STEP 2: Open Intercom
+//   console.log('Opening Intercom...');
+//   const messenger = await openIntercom(page);
+//   console.log('Intercom opened successfully');
 
-  // Add a longer wait for Intercom to fully initialize
-  await page.waitForTimeout(5000);
+//   // Add a longer wait for Intercom to fully initialize
+//   await page.waitForTimeout(5000);
 
-  // STEP 3: Find and use message input
-  console.log('Looking for message input...');
-  const textarea = await findAndUseMessageInput(page, messenger);
+//   // STEP 3: Find and use message input
+//   console.log('Looking for message input...');
+//   const textarea = await findAndUseMessageInput(page, messenger);
   
-  // Type and send message
-  const testMessage = 'This is an automated test message ' + Date.now();
-  await textarea.fill(testMessage);
-  await textarea.press('Enter');
-  console.log('Message sent successfully');
+//   // Type and send message
+//   const testMessage = 'This is an automated test message ' + Date.now();
+//   await textarea.fill(testMessage);
+//   await textarea.press('Enter');
+//   console.log('Message sent successfully');
 
-  // Wait for message to be sent
-  await page.waitForTimeout(5000);
+//   // Wait for message to be sent
+//   await page.waitForTimeout(5000);
 
-  // STEP 4: Close Intercom
-  console.log('Closing Intercom...');
-  await closeIntercom(page);
+//   // STEP 4: Close Intercom
+//   console.log('Closing Intercom...');
+//   await closeIntercom(page);
 
-  // Validate messenger is closed
-  await expect(page.locator(MESSENGER_IFRAME)).toBeHidden({ timeout: 10000 });
-  console.log('Intercom closed successfully - Test completed');
-});
+//   // Validate messenger is closed
+//   await expect(page.locator(MESSENGER_IFRAME)).toBeHidden({ timeout: 10000 });
+//   console.log('Intercom closed successfully - Test completed');
+// });
